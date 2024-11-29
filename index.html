@@ -20,8 +20,8 @@
 <body>
 
     <h1>FST Timer</h1>
-    <div id="elapsed">Time Elapsed: </div>
-    <div id="remaining">Time Remaining: </div>
+    <div id="elapsed">Elapsed: </div>
+    <div id="remaining">Remaining: </div>
 
     <script>
         function updateTimers() {
@@ -47,7 +47,9 @@
             document.getElementById('remaining').innerHTML = 'Time Remaining: ' + remainingHours + ' Hours';
         }
 
+        updateTimers();
         setInterval(updateTimers, 1000);
+        
     </script>
 
 </body>
