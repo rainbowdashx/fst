@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>fst Timer</title>
+    <style>
+        body {
+            background-color: #ccc;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            font-weight: bold;
+        }
+        #elapsed, #remaining {
+            font-size: 3em;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>FST Timer</h1>
+    <div id="elapsed">Time Elapsed: </div>
+    <div id="remaining">Time Remaining: </div>
+
+    <script>
+        function updateTimers() {
+            var startTime = new Date('November 29, 2024 15:00:00');
+            var endTime = new Date(startTime.getTime() + 3 * 24 * 60 * 60 * 1000); // 3 days later
+            var now = new Date();
+
+            var elapsedTime = now - startTime;
+            var remainingTime = endTime - now;
+
+            if (elapsedTime < 0) {
+                elapsedTime = 0;
+            }
+
+            if (remainingTime < 0) {
+                remainingTime = 0;
+            }
+
+            var elapsedHours = Math.floor(elapsedTime / (1000 * 60 * 60));
+            var remainingHours = Math.floor(remainingTime / (1000 * 60 * 60));
+
+            document.getElementById('elapsed').innerHTML = 'Time Elapsed: ' + elapsedHours + ' Hours';
+            document.getElementById('remaining').innerHTML = 'Time Remaining: ' + remainingHours + ' Hours';
+        }
+
+        setInterval(updateTimers, 1000);
+    </script>
+
+</body>
+</html>
